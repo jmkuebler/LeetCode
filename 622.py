@@ -33,9 +33,12 @@ class MyCircularQueue:
             return False
         else:
             self.queue[self.front] = None
-            self.front += 1
-            self.front = self.front % self.size
-            return True
+            if self.front == self.rear:
+                return True
+            else:
+                self.front += 1
+                self.front = self.front % self.size
+                return True
 
 
     def Front(self) -> int:
